@@ -1,4 +1,5 @@
 package edd.src.Estructuras;
+import java.util.Scanner;
 
 public class Practica2 {
     
@@ -18,7 +19,7 @@ public class Practica2 {
             n = n - 1;
         }
         // Iniciamos con el juego
-        System.out.println("----------------------------------------\n" +
+        System.out.println("\n------------------ TORRES HANOI ------------------\n" +
                             "Comienzo del juego\n" + 
                             "Numero de discos: " + cantidadDiscos + " discos\n" + 
                             "Movimientos estimados: " + movimientos + "\n");
@@ -103,18 +104,52 @@ public class Practica2 {
         System.out.println("----------------------------------------\n");
     }
 
+    /**
+     * Metodo para coinvertir de sistema decimal a sistema binario
+     * @param N - hasta el numero para imprimir en binario
+     */
     public static void binarioColas(int N){
-
+        System.out.println("------------------ NUMEROS BINARIOS ------------------");
+        System.out.println("Convertiremos en numero binario hasta el numero: " + N + "\n");
+        // Si es N==0 entonces solo devolvemos y acabamos
+        if (N==0){
+            System.out.println("0");
+            return;
+        }
+        // Creamos la cola donde almacenaremos los digitos 0 y 1
+        Cola<String> cola = new Cola<String>();
+        // Inicializamos con 1, ya que es el caso base
+        cola.push("1");
+        String cadena;
+        String aux;
+        // Iteracion de los numeros binarios
+        for(int i = 0; i < N; i++){
+            cadena = cola.pop();
+            cola.push(cadena + "0");
+            cola.push(cadena + "1");
+            System.out.println("Numero " + (i + 1) + " --> " + cadena);
+        }
     }
 
+    /**
+     * Metodo main, para inicializar el programa. Importamos Scanner para darle un toque bonito al
+     * codigo con el usuario.
+     * @param args
+     */
     public static void main(String[] args) {
         // Escribe aqui tu codigo para probar los metodos anteriores. 
-        // No olvides comentar tu codigo y escribir tu nombre en el readme. 
-        int nuevo = 9;
+        // No olvides comentar tu codigo y escribir tu nombre en el readme.
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("\nIngrese el numero de discos para jugar torres de Hanoi: ");
+        int n = entrada.nextInt();
         Pila<Integer> origen = new Pila<Integer>();
         Pila<Integer> auxiliar = new Pila<Integer>();
         Pila<Integer> destino = new Pila<Integer>();
-        torresHanoi(nuevo, origen, auxiliar, destino);
+        torresHanoi(n, origen, auxiliar, destino);
+
+        System.out.println("\nIngrese el numero en sistema decimal para convertir a binario: ");
+        int aux = entrada.nextInt();
+        binarioColas(aux);
     }
 
 }

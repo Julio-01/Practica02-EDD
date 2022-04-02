@@ -36,7 +36,6 @@ public abstract class PushPop<T> {
         return valor;
     }
 
-
     public T peek(){
         if (isEmpty()) {
             throw new NoSuchElementException("");

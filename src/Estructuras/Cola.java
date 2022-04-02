@@ -3,7 +3,7 @@ package edd.src.Estructuras;
 public class Cola<T> extends PushPop<T>{
 
     /**
-    * Metodo para agregar al inicio.
+    * Metodo para agregar al final.
     * @param elemento - elemento a agregar
     */
     public void push(T elemento){
@@ -16,8 +16,8 @@ public class Cola<T> extends PushPop<T>{
             longi++;
             return;
         }
-        aux.siguiente = cabeza;
-        cabeza = aux;
+        ultimo.siguiente = aux;
+        ultimo = aux;
         longi++;
     }
 

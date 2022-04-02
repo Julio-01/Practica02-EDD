@@ -1,5 +1,6 @@
-## Nombres ->
-        ->
+## Nombres 
+##         -> Hernandez Paramo Elizabeth		319143209
+##         -> Torres Escobedo Julio Cesar 	317336267
 
 compilar -> javac -d . src/Estructuras/*.java
 
